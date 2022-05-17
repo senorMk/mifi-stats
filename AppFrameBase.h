@@ -4,8 +4,8 @@
 // Do not modify this file by hand!
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _DESKTOP_MIFISTATS_APPFRAMEBASE_BASE_CLASSES_H
-#define _DESKTOP_MIFISTATS_APPFRAMEBASE_BASE_CLASSES_H
+#ifndef _DESKTOP_HUASTATS_APPFRAMEBASE_BASE_CLASSES_H
+#define _DESKTOP_HUASTATS_APPFRAMEBASE_BASE_CLASSES_H
 
 #include <wx/settings.h>
 #include <wx/xrc/xmlres.h>
@@ -75,7 +75,7 @@ public:
     wxTextCtrl* GetTCT() { return TCT; }
     wxTextCtrl* GetTotalConnectTime() { return TotalConnectTime; }
     wxTimer* GetPBackgroundTimer() { return m_pBackgroundTimer; }
-    AppFrameBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("HuaStats - Lazy Stats for Huawei Routers"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(-1,-1), long style = wxDEFAULT_DIALOG_STYLE|wxSTAY_ON_TOP|wxRESIZE_BORDER|wxMINIMIZE_BOX);
+    AppFrameBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("HuaStats - Lazy Stats for Huawei Routers"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(-1,-1), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER|wxMINIMIZE_BOX);
     virtual ~AppFrameBase();
 };
 

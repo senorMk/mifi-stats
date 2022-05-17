@@ -13,6 +13,9 @@ size_t WriteData(void* ptr, size_t size, size_t nmemb, FILE* stream)
 
 unsigned long long DigitFromString(const wxString& String)
 {
+	if (String.IsEmpty())
+		return 0;
+
 	unsigned long long Result = 0;
 
 	try
@@ -22,7 +25,7 @@ unsigned long long DigitFromString(const wxString& String)
 	catch (std::exception& except)
 	{
 		wxRichMessageDialog  Dlg(nullptr, wxString::Format(_("Caught an exception:\n\n %s"), wxString(except.what())),
-			_("Something Went Wrong:"), wxYES_NO | wxICON_INFORMATION | wxCENTER);
+			_("Something Went Wrong:"), wxOK | wxICON_INFORMATION | wxCENTER);
 		Dlg.ShowModal();
 	}
 
@@ -179,21 +182,43 @@ void AppFrame::CheckForUpdates()
 
 	wxXmlNode* child = doc.GetRoot()->GetChildren();
 
-	unsigned long long TotalUploadBytes = 0;
-
-	unsigned long long TotalDownloadBytes = 0;
+	unsigned long long TotalUploadBytes = 0, TotalDownloadBytes = 0;
 
 	while (child)
 	{
 		wxString ChildName = child->GetName();
 
-		if (ChildName == "error")
+		if (ChildName == "code")
+		{
+			wxString ChildContent = child->GetNodeContent();
+
+			unsigned long long Code = DigitFromString(ChildContent);
+
+			// Error
+			if (Code == 125002)
+			{
+				curl_easy_cleanup(Curl);
+				m_pBackgroundTimer->Stop();
+				Sleep(2000);
+				Load();
+
+				return;
+			}
+		}
+		else if (ChildName == "error")
 		{
 			curl_easy_cleanup(Curl);
 			return;
 		}
 
+
 		wxXmlNode* pSubChild = child->GetChildren();
+		if (!pSubChild)
+		{
+			curl_easy_cleanup(Curl);
+			return;
+		}
+
 		wxString ChildText = pSubChild->GetContent();
 
 		unsigned long long Digit = DigitFromString(ChildText);
