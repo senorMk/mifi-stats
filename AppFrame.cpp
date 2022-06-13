@@ -25,7 +25,7 @@ unsigned long long DigitFromString(const wxString& String)
 	catch (std::exception& except)
 	{
 		wxRichMessageDialog  Dlg(nullptr, wxString::Format(_("Caught an exception:\n\n %s"), wxString(except.what())),
-			_("Something Went Wrong:"), wxOK | wxICON_INFORMATION | wxCENTER);
+			_("Something Went Wrong:"), wxOK | wxICON_INFORMATION | wxCENTRE_ON_SCREEN);
 		Dlg.ShowModal();
 	}
 
@@ -63,7 +63,7 @@ size_t SendEventCurlWriteCallback(void* contents, size_t size, size_t nmemb, std
 	catch (std::bad_alloc& except)
 	{
 		wxRichMessageDialog  Dlg(nullptr, wxString::Format(_("Caught an exception:\n\n %s"), wxString(except.what())),
-			_("Something Went Wrong:"), wxOK | wxICON_INFORMATION | wxCENTER);
+			_("Something Went Wrong:"), wxOK | wxICON_INFORMATION | wxCENTRE_ON_SCREEN);
 		Dlg.ShowModal();
 
 		return 0;
@@ -145,7 +145,7 @@ void AppFrame::Load()
 	else
 	{
 		wxRichMessageDialog  Dlg(this, "Couldn't start the timer.",
-			_("Something Went Wrong:"), wxOK | wxICON_INFORMATION | wxCENTER);
+			_("Something Went Wrong:"), wxOK | wxICON_INFORMATION | wxCENTRE_ON_SCREEN);
 		Dlg.ShowModal();
 
 		const wxString empty = "";
