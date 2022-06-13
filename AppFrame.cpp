@@ -63,7 +63,7 @@ size_t SendEventCurlWriteCallback(void* contents, size_t size, size_t nmemb, std
 	catch (std::bad_alloc& except)
 	{
 		wxRichMessageDialog  Dlg(nullptr, wxString::Format(_("Caught an exception:\n\n %s"), wxString(except.what())),
-			_("Something Went Wrong:"), wxYES_NO | wxICON_INFORMATION | wxCENTER);
+			_("Something Went Wrong:"), wxOK | wxICON_INFORMATION | wxCENTER);
 		Dlg.ShowModal();
 
 		return 0;
@@ -132,6 +132,7 @@ void AppFrame::Load()
 	curl_easy_setopt(Curl, CURLOPT_WRITEDATA, &OutputString);
 	curl_easy_setopt(Curl, CURLOPT_VERBOSE, true);
 	curl_easy_setopt(Curl, CURLOPT_COOKIEJAR, CookieFile.mb_str(wxConvUTF8).data());
+	curl_easy_setopt(Curl, CURLOPT_TIMEOUT, 5L);
 
 	Response = curl_easy_perform(Curl);
 
@@ -140,6 +141,21 @@ void AppFrame::Load()
 	if (Response == CURLE_OK)
 	{
 		m_pBackgroundTimer->Start(1000);
+	}
+	else
+	{
+		wxRichMessageDialog  Dlg(this, "Couldn't start the timer.",
+			_("Something Went Wrong:"), wxOK | wxICON_INFORMATION | wxCENTER);
+		Dlg.ShowModal();
+
+		const wxString empty = "";
+		CurrentConnectTime->SetValue(empty);
+		CurrentUpload->SetValue(empty);
+		CurrentDownload->SetValue(empty);
+		TotalUpload->SetValue(empty);
+		TotalDownload->SetValue(empty);
+		TotalUploadDownload->SetValue(empty);
+		TotalConnectTime->SetValue(empty);
 	}
 }
 
@@ -166,6 +182,15 @@ void AppFrame::CheckForUpdates()
 
 	if (Response != CURLE_OK)
 	{
+		const wxString empty = "";
+		CurrentConnectTime->SetValue(empty);
+		CurrentUpload->SetValue(empty);
+		CurrentDownload->SetValue(empty);
+		TotalUpload->SetValue(empty);
+		TotalDownload->SetValue(empty);
+		TotalUploadDownload->SetValue(empty);
+		TotalConnectTime->SetValue(empty);
+
 		return;
 	}
 
