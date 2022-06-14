@@ -18,7 +18,7 @@ MiFiStats is a quick and easy stats widget for your portable router that lives o
 
 ## Screenshots
 <center>
-	<img src="https://github.com/senorMk/JobCrawler/resources/screenshot.png" />
+	<img src="https://github.com/senorMk/MiFiStats/blob/master/resources/screenshot.png?raw=true" />
 </center>
 
 ## Clone or download
