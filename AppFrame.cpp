@@ -155,7 +155,6 @@ void AppFrame::Load()
 		TotalUpload->SetValue(empty);
 		TotalDownload->SetValue(empty);
 		TotalUploadDownload->SetValue(empty);
-		TotalConnectTime->SetValue(empty);
 	}
 }
 
@@ -189,7 +188,6 @@ void AppFrame::CheckForUpdates()
 		TotalUpload->SetValue(empty);
 		TotalDownload->SetValue(empty);
 		TotalUploadDownload->SetValue(empty);
-		TotalConnectTime->SetValue(empty);
 
 		return;
 	}
@@ -276,11 +274,6 @@ void AppFrame::CheckForUpdates()
 			TotalDownloadBytes += Digit;
 
 			TotalUploadDownload->SetValue(SizeToString(TotalUploadBytes + TotalDownloadBytes));
-		}
-		else if (ChildName == "TotalConnectTime")
-		{
-			wxString t = SecondsToTime(Digit);
-			TotalConnectTime->SetValue(t);
 		}
 
 		child = child->GetNext();
