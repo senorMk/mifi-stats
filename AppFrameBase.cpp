@@ -26,129 +26,157 @@ AppFrameBase::AppFrameBase(wxWindow* parent, wxWindowID id, const wxString& titl
     main_sizer = new wxBoxSizer(wxVERTICAL);
     this->SetSizer(main_sizer);
     
-    boxSizer110 = new wxBoxSizer(wxHORIZONTAL);
+    CurrentSession = new wxBoxSizer(wxHORIZONTAL);
     
-    main_sizer->Add(boxSizer110, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
+    main_sizer->Add(CurrentSession, 1, wxALL, WXC_FROM_DIP(5));
     
-    boxSizer110->Add(0, 0, 1, wxALL, WXC_FROM_DIP(5));
-    
-    gridSizer100 = new wxGridSizer(0, 2, 0, 0);
-    
-    boxSizer110->Add(gridSizer100, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
-    CCT = new wxTextCtrl(this, wxID_ANY, wxT("Current Session"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxBORDER_SIMPLE);
+    CCT = new wxTextCtrl(this, wxID_ANY, wxT("Current Session"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxBORDER_NONE);
     #if wxVERSION_NUMBER >= 3000
     CCT->SetHint(wxT(""));
     #endif
     
-    gridSizer100->Add(CCT, 0, wxALL, WXC_FROM_DIP(5));
+    CurrentSession->Add(CCT, 0, wxALL, WXC_FROM_DIP(5));
     CCT->SetMinSize(wxSize(200,-1));
     
-    CurrentConnectTime = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxTE_CENTRE|wxBORDER_SIMPLE);
+    CurrentSession->Add(0, 0, 1, wxALL, WXC_FROM_DIP(5));
+    
+    CurrentConnectTime = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_RIGHT|wxTE_READONLY|wxBORDER_NONE);
     #if wxVERSION_NUMBER >= 3000
     CurrentConnectTime->SetHint(wxT(""));
     #endif
     
-    gridSizer100->Add(CurrentConnectTime, 0, wxALL, WXC_FROM_DIP(5));
+    CurrentSession->Add(CurrentConnectTime, 0, wxALL, WXC_FROM_DIP(5));
     CurrentConnectTime->SetMinSize(wxSize(200,-1));
     
-    CU = new wxTextCtrl(this, wxID_ANY, wxT("Current Up"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxBORDER_SIMPLE);
+    m_staticLine156 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxLI_HORIZONTAL);
+    
+    main_sizer->Add(m_staticLine156, 0, wxLEFT|wxRIGHT|wxEXPAND, WXC_FROM_DIP(5));
+    
+    CurrentUp = new wxBoxSizer(wxHORIZONTAL);
+    
+    main_sizer->Add(CurrentUp, 0, wxALL, WXC_FROM_DIP(5));
+    
+    CU = new wxTextCtrl(this, wxID_ANY, wxT("Current Up"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxBORDER_NONE);
     #if wxVERSION_NUMBER >= 3000
     CU->SetHint(wxT(""));
     #endif
     
-    gridSizer100->Add(CU, 0, wxALL, WXC_FROM_DIP(5));
+    CurrentUp->Add(CU, 0, wxALL, WXC_FROM_DIP(5));
     CU->SetMinSize(wxSize(200,-1));
     
-    CurrentUpload = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxTE_CENTRE|wxBORDER_SIMPLE);
+    CurrentUp->Add(0, 0, 1, wxALL, WXC_FROM_DIP(5));
+    
+    CurrentUpload = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_RIGHT|wxTE_READONLY|wxBORDER_NONE);
     #if wxVERSION_NUMBER >= 3000
     CurrentUpload->SetHint(wxT(""));
     #endif
     
-    gridSizer100->Add(CurrentUpload, 0, wxALL, WXC_FROM_DIP(5));
+    CurrentUp->Add(CurrentUpload, 0, wxALL, WXC_FROM_DIP(5));
     CurrentUpload->SetMinSize(wxSize(200,-1));
     
-    CD = new wxTextCtrl(this, wxID_ANY, wxT("Current Down"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxBORDER_SIMPLE);
+    m_staticLine1561 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxLI_HORIZONTAL);
+    
+    main_sizer->Add(m_staticLine1561, 0, wxLEFT|wxRIGHT|wxEXPAND, WXC_FROM_DIP(5));
+    
+    CurrentDown = new wxBoxSizer(wxHORIZONTAL);
+    
+    main_sizer->Add(CurrentDown, 0, wxALL, WXC_FROM_DIP(5));
+    
+    CD = new wxTextCtrl(this, wxID_ANY, wxT("Current Down"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxBORDER_NONE);
     #if wxVERSION_NUMBER >= 3000
     CD->SetHint(wxT(""));
     #endif
     
-    gridSizer100->Add(CD, 0, wxALL, WXC_FROM_DIP(5));
+    CurrentDown->Add(CD, 0, wxALL, WXC_FROM_DIP(5));
     CD->SetMinSize(wxSize(200,-1));
     
-    CurrentDownload = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxTE_CENTRE|wxBORDER_SIMPLE);
+    CurrentDown->Add(0, 0, 1, wxALL, WXC_FROM_DIP(5));
+    
+    CurrentDownload = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_RIGHT|wxTE_READONLY|wxBORDER_NONE);
     #if wxVERSION_NUMBER >= 3000
     CurrentDownload->SetHint(wxT(""));
     #endif
     
-    gridSizer100->Add(CurrentDownload, 0, wxALL, WXC_FROM_DIP(5));
+    CurrentDown->Add(CurrentDownload, 0, wxALL, WXC_FROM_DIP(5));
     CurrentDownload->SetMinSize(wxSize(200,-1));
     
-    TU = new wxTextCtrl(this, wxID_ANY, wxT("Total Up"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxBORDER_SIMPLE);
+    m_staticLine15612 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxLI_HORIZONTAL);
+    
+    main_sizer->Add(m_staticLine15612, 0, wxLEFT|wxRIGHT|wxEXPAND, WXC_FROM_DIP(5));
+    
+    TotalUp = new wxBoxSizer(wxHORIZONTAL);
+    
+    main_sizer->Add(TotalUp, 0, wxALL, WXC_FROM_DIP(5));
+    
+    TU = new wxTextCtrl(this, wxID_ANY, wxT("Total Up"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxBORDER_NONE);
     #if wxVERSION_NUMBER >= 3000
     TU->SetHint(wxT(""));
     #endif
     
-    gridSizer100->Add(TU, 0, wxALL, WXC_FROM_DIP(5));
+    TotalUp->Add(TU, 0, wxALL, WXC_FROM_DIP(5));
     TU->SetMinSize(wxSize(200,-1));
     
-    TotalUpload = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxTE_CENTRE|wxBORDER_SIMPLE);
+    TotalUp->Add(0, 0, 1, wxALL, WXC_FROM_DIP(5));
+    
+    TotalUpload = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_RIGHT|wxTE_READONLY|wxBORDER_NONE);
     #if wxVERSION_NUMBER >= 3000
     TotalUpload->SetHint(wxT(""));
     #endif
     
-    gridSizer100->Add(TotalUpload, 0, wxALL, WXC_FROM_DIP(5));
+    TotalUp->Add(TotalUpload, 0, wxALL, WXC_FROM_DIP(5));
     TotalUpload->SetMinSize(wxSize(200,-1));
     
-    TD = new wxTextCtrl(this, wxID_ANY, wxT("Total Down"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxBORDER_SIMPLE);
+    m_staticLine156123 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxLI_HORIZONTAL);
+    
+    main_sizer->Add(m_staticLine156123, 0, wxLEFT|wxRIGHT|wxEXPAND, WXC_FROM_DIP(5));
+    
+    TotalDown = new wxBoxSizer(wxHORIZONTAL);
+    
+    main_sizer->Add(TotalDown, 0, wxALL, WXC_FROM_DIP(5));
+    
+    TD = new wxTextCtrl(this, wxID_ANY, wxT("Total Down"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxBORDER_NONE);
     #if wxVERSION_NUMBER >= 3000
     TD->SetHint(wxT(""));
     #endif
     
-    gridSizer100->Add(TD, 0, wxALL, WXC_FROM_DIP(5));
+    TotalDown->Add(TD, 0, wxALL, WXC_FROM_DIP(5));
     TD->SetMinSize(wxSize(200,-1));
     
-    TotalDownload = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxTE_CENTRE|wxBORDER_SIMPLE);
+    TotalDown->Add(0, 0, 1, wxALL, WXC_FROM_DIP(5));
+    
+    TotalDownload = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_RIGHT|wxTE_READONLY|wxBORDER_NONE);
     #if wxVERSION_NUMBER >= 3000
     TotalDownload->SetHint(wxT(""));
     #endif
     
-    gridSizer100->Add(TotalDownload, 0, wxALL, WXC_FROM_DIP(5));
+    TotalDown->Add(TotalDownload, 0, wxALL, WXC_FROM_DIP(5));
     TotalDownload->SetMinSize(wxSize(200,-1));
     
-    TUD = new wxTextCtrl(this, wxID_ANY, wxT("Total (Up + Down)"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxBORDER_SIMPLE);
+    m_staticLine1561234 = new wxStaticLine(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxLI_HORIZONTAL);
+    
+    main_sizer->Add(m_staticLine1561234, 0, wxLEFT|wxRIGHT|wxEXPAND, WXC_FROM_DIP(5));
+    
+    TotalUpDown = new wxBoxSizer(wxHORIZONTAL);
+    
+    main_sizer->Add(TotalUpDown, 0, wxALL, WXC_FROM_DIP(5));
+    
+    TUD = new wxTextCtrl(this, wxID_ANY, wxT("Total (Up + Down)"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxBORDER_NONE);
     #if wxVERSION_NUMBER >= 3000
     TUD->SetHint(wxT(""));
     #endif
     
-    gridSizer100->Add(TUD, 0, wxALL, WXC_FROM_DIP(5));
+    TotalUpDown->Add(TUD, 0, wxALL, WXC_FROM_DIP(5));
     TUD->SetMinSize(wxSize(200,-1));
     
-    TotalUploadDownload = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxTE_CENTRE|wxBORDER_SIMPLE);
+    TotalUpDown->Add(0, 0, 1, wxALL, WXC_FROM_DIP(5));
+    
+    TotalUploadDownload = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_RIGHT|wxTE_READONLY|wxBORDER_NONE);
     #if wxVERSION_NUMBER >= 3000
     TotalUploadDownload->SetHint(wxT(""));
     #endif
     
-    gridSizer100->Add(TotalUploadDownload, 0, wxALL, WXC_FROM_DIP(5));
+    TotalUpDown->Add(TotalUploadDownload, 0, wxALL, WXC_FROM_DIP(5));
     TotalUploadDownload->SetMinSize(wxSize(200,-1));
-    
-    TCT = new wxTextCtrl(this, wxID_ANY, wxT("Total Sessions"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxBORDER_SIMPLE);
-    #if wxVERSION_NUMBER >= 3000
-    TCT->SetHint(wxT(""));
-    #endif
-    
-    gridSizer100->Add(TCT, 0, wxALL, WXC_FROM_DIP(5));
-    TCT->SetMinSize(wxSize(200,-1));
-    
-    TotalConnectTime = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTE_READONLY|wxTE_CENTRE|wxBORDER_SIMPLE);
-    #if wxVERSION_NUMBER >= 3000
-    TotalConnectTime->SetHint(wxT(""));
-    #endif
-    
-    gridSizer100->Add(TotalConnectTime, 0, wxALL, WXC_FROM_DIP(5));
-    TotalConnectTime->SetMinSize(wxSize(200,-1));
-    
-    boxSizer110->Add(0, 0, 1, wxALL, WXC_FROM_DIP(5));
     
     m_pBackgroundTimer = new wxTimer;
     

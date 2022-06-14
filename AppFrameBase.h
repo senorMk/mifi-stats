@@ -15,6 +15,7 @@
 #include <wx/artprov.h>
 #include <wx/sizer.h>
 #include <wx/textctrl.h>
+#include <wx/statline.h>
 #include <wx/timer.h>
 #if wxVERSION_NUMBER >= 2900
 #include <wx/persist.h>
@@ -37,22 +38,29 @@ class AppFrameBase : public wxDialog
 {
 protected:
     wxBoxSizer* main_sizer;
-    wxBoxSizer* boxSizer110;
-    wxGridSizer* gridSizer100;
+    wxBoxSizer* CurrentSession;
     wxTextCtrl* CCT;
     wxTextCtrl* CurrentConnectTime;
+    wxStaticLine* m_staticLine156;
+    wxBoxSizer* CurrentUp;
     wxTextCtrl* CU;
     wxTextCtrl* CurrentUpload;
+    wxStaticLine* m_staticLine1561;
+    wxBoxSizer* CurrentDown;
     wxTextCtrl* CD;
     wxTextCtrl* CurrentDownload;
+    wxStaticLine* m_staticLine15612;
+    wxBoxSizer* TotalUp;
     wxTextCtrl* TU;
     wxTextCtrl* TotalUpload;
+    wxStaticLine* m_staticLine156123;
+    wxBoxSizer* TotalDown;
     wxTextCtrl* TD;
     wxTextCtrl* TotalDownload;
+    wxStaticLine* m_staticLine1561234;
+    wxBoxSizer* TotalUpDown;
     wxTextCtrl* TUD;
     wxTextCtrl* TotalUploadDownload;
-    wxTextCtrl* TCT;
-    wxTextCtrl* TotalConnectTime;
     wxTimer* m_pBackgroundTimer;
 
 protected:
@@ -62,20 +70,23 @@ protected:
 public:
     wxTextCtrl* GetCCT() { return CCT; }
     wxTextCtrl* GetCurrentConnectTime() { return CurrentConnectTime; }
+    wxStaticLine* GetStaticLine156() { return m_staticLine156; }
     wxTextCtrl* GetCU() { return CU; }
     wxTextCtrl* GetCurrentUpload() { return CurrentUpload; }
+    wxStaticLine* GetStaticLine1561() { return m_staticLine1561; }
     wxTextCtrl* GetCD() { return CD; }
     wxTextCtrl* GetCurrentDownload() { return CurrentDownload; }
+    wxStaticLine* GetStaticLine15612() { return m_staticLine15612; }
     wxTextCtrl* GetTU() { return TU; }
     wxTextCtrl* GetTotalUpload() { return TotalUpload; }
+    wxStaticLine* GetStaticLine156123() { return m_staticLine156123; }
     wxTextCtrl* GetTD() { return TD; }
     wxTextCtrl* GetTotalDownload() { return TotalDownload; }
+    wxStaticLine* GetStaticLine1561234() { return m_staticLine1561234; }
     wxTextCtrl* GetTUD() { return TUD; }
     wxTextCtrl* GetTotalUploadDownload() { return TotalUploadDownload; }
-    wxTextCtrl* GetTCT() { return TCT; }
-    wxTextCtrl* GetTotalConnectTime() { return TotalConnectTime; }
     wxTimer* GetPBackgroundTimer() { return m_pBackgroundTimer; }
-    AppFrameBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("HuaStats - Lazy Stats for Huawei Routers"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(-1,-1), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER|wxMINIMIZE_BOX);
+    AppFrameBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("HuaStats - Lazy Stats for Huawei Routers"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(-1,-1), long style = wxDEFAULT_DIALOG_STYLE|wxMINIMIZE_BOX);
     virtual ~AppFrameBase();
 };
 
