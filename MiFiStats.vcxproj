@@ -24,6 +24,7 @@
     <ProjectGuid>{7c02e93b-38b5-4230-b20b-5db68307204a}</ProjectGuid>
     <RootNamespace>HuaStats</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>MiFiStats</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -156,6 +157,10 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="AppFrame.h" />
     <ClInclude Include="AppFrameBase.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

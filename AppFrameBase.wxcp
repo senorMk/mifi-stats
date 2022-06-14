@@ -80,7 +80,7 @@
     }, {
      "type": "string",
      "m_label": "Title:",
-     "m_value": "HuaStats - Lazy Stats for Huawei Routers"
+     "m_value": "MiFiStats"
     }, {
      "type": "virtualFolderPicker",
      "m_label": "Virtual Folder:",

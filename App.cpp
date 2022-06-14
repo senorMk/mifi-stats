@@ -9,11 +9,12 @@ MiFiStatsApp::~MiFiStatsApp()
 
 bool MiFiStatsApp::OnInit()
 {
-	wxApp::SetAppName("HuaStats");
+	wxApp::SetAppName("MiFiStats");
 
 	try
 	{
 		pFrame = new AppFrame(0L);
+		pFrame->SetIcon(wxICON(MainIcon));
 		pFrame->Show();
 	}
 	catch (...)

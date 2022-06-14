@@ -86,7 +86,7 @@ public:
     wxTextCtrl* GetTUD() { return TUD; }
     wxTextCtrl* GetTotalUploadDownload() { return TotalUploadDownload; }
     wxTimer* GetPBackgroundTimer() { return m_pBackgroundTimer; }
-    AppFrameBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("HuaStats - Lazy Stats for Huawei Routers"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(-1,-1), long style = wxDEFAULT_DIALOG_STYLE|wxMINIMIZE_BOX);
+    AppFrameBase(wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("MiFiStats"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize(-1,-1), long style = wxDEFAULT_DIALOG_STYLE|wxMINIMIZE_BOX);
     virtual ~AppFrameBase();
 };
 

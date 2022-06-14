@@ -30,6 +30,9 @@
     <ClInclude Include="AppFrameBase.h">
       <Filter>Header Files\interface</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp">
@@ -44,5 +47,10 @@
     <ClCompile Include="AppFrameBase_bitmaps.cpp">
       <Filter>Source Files\interface</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
