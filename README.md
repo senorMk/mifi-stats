@@ -6,7 +6,7 @@ Hate having to login to the admin dashboard of your portable WiFi router to see 
 </p>
 
 <p align="center">
-   <a href="https://github.com/senorMk/JobCrawler/blob/master/LICENSE">
+   <a href="https://github.com/senorMk/MiFiStats/blob/master/LICENSE">
       <img src="https://img.shields.io/badge/License-MIT-green.svg" />
    </a>
    <img src="https://img.shields.io/github/repo-size/senorMk/MiFiStats" />
@@ -66,4 +66,4 @@ MiFiStats.vcxproj
 
 ### License
 
-[MIT](https://github.com/senorMk/JobCrawler/blob/master/LICENSE)
+[MIT](https://github.com/senorMk/MiFiStats/blob/master/LICENSE)
