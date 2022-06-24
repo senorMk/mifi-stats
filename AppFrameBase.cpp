@@ -191,6 +191,13 @@ AppFrameBase::AppFrameBase(wxWindow* parent, wxWindowID id, const wxString& titl
     } else {
         CentreOnScreen(wxBOTH);
     }
+#if wxVERSION_NUMBER >= 2900
+    if(!wxPersistenceManager::Get().Find(this)) {
+        wxPersistenceManager::Get().RegisterAndRestore(this);
+    } else {
+        wxPersistenceManager::Get().Restore(this);
+    }
+#endif
     // Connect events
     this->Connect(wxEVT_CLOSE_WINDOW, wxCloseEventHandler(AppFrameBase::OnClose), NULL, this);
     m_pBackgroundTimer->Connect(wxEVT_TIMER, wxTimerEventHandler(AppFrameBase::OnBackgroundTimer), NULL, this);

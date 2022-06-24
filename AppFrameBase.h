@@ -4,8 +4,8 @@
 // Do not modify this file by hand!
 //////////////////////////////////////////////////////////////////////
 
-#ifndef _DESKTOP_HUASTATS_APPFRAMEBASE_BASE_CLASSES_H
-#define _DESKTOP_HUASTATS_APPFRAMEBASE_BASE_CLASSES_H
+#ifndef _DESKTOP_MIFISTATS_APPFRAMEBASE_BASE_CLASSES_H
+#define _DESKTOP_MIFISTATS_APPFRAMEBASE_BASE_CLASSES_H
 
 #include <wx/settings.h>
 #include <wx/xrc/xmlres.h>
