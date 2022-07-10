@@ -17,9 +17,9 @@ I did too...
 MiFiStats is a quick and easy stats widget for your portable router that lives on your desktop and ensures you never have to login to that admin dashboard again.
 
 ## Screenshots
-<center>
+<p align="center" width="100%">
 	<img src="https://github.com/senorMk/MiFiStats/blob/master/resources/screenshot.png?raw=true" />
-</center>
+</p>
 
 ## Clone or download
 
