@@ -138,16 +138,10 @@ void AppFrame::Load()
 
 	curl_easy_cleanup(Curl);
 
-	if (Response == CURLE_OK)
-	{
-		m_pBackgroundTimer->Start(1000);
-	}
-	else
-	{
-		wxRichMessageDialog  Dlg(this, "Couldn't start the timer.",
-			_("Something Went Wrong:"), wxOK | wxCENTRE);
-		Dlg.ShowModal();
+	m_pBackgroundTimer->Start(1000);
 
+	if (Response != CURLE_OK)
+	{
 		const wxString empty = "";
 		CurrentConnectTime->SetValue(empty);
 		CurrentUpload->SetValue(empty);
